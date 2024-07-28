@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Predicción</title>
+
+    <!-- Main css -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+        }
+        .container {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
+        }
+        .signin-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .signin-form, .signin-image {
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        .signin-form {
+            flex: 1;
+        }
+        .signin-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e0f7fa;
+        }
+        .signin-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .form-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .term-service {
+            display: inline-block;
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .term-service:hover {
+            text-decoration: underline;
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- Prediction status -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="../static/images/ca.JPG" alt="sign up image"></figure>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Predicción</h2>
+                        <p>Predicción del modelo <b>RandomForest</b>.</p>
+                        </br></br>
+                        <p>{{ prediction }}</p>
+                        </br></br>
+                        <div class="form-group">
+                            <label for="agree-term" class="label-agree-term">
+                                <span><span></span></span>
+                                <a href="{{ url_for('home') }}" class="term-service">Regresar</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

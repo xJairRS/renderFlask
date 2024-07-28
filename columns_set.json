@@ -1,0 +1,10 @@
+{
+    "data_columns": {
+        "Nitrogen": null,
+		"Potassium": null,
+		"Humidity": null,
+        "Phosphorus": null,
+        "pH_Value": null,
+        "Temperature": null
+    }
+}

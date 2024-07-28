@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clasificación de Suelo</title>
+    <!-- Main css -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50vh;
+            background-color: #f2f2f2;
+        }
+        .container {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            max-width: 1100px;
+            width: 100%;
+            margin: 5px;
+        }
+        .signup-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .signup-form, .signup-image {
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        .signup-form {
+            flex: 1;
+        }
+        .signup-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e0f7fa;
+        }
+        .signup-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .form-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input {
+            width: calc(100% - 40px);
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-button {
+            text-align: center;
+        }
+        .form-submit {
+            background-color: #0da7f4e5;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-submit:hover {
+            background-color: #0056b3;
+        }
+        h3 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .signup-form, .signup-image {
+                padding: 70px;
+            }
+            .form-group input {
+                width: calc(100% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-title, h3 {
+                font-size: 20px;
+            }
+            .form-group input {
+                width: calc(100% - 10px);
+                padding: 8px 10px;
+            }
+            .form-submit {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <!-- Applicant form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Clasificación de un buen suelo para la siembra de caña</h2>
+                        <form action="/prediction" method="POST" class="register-form" id="Register-form">
+                            <h3>Datos de Entrada</h3>
+                            <div class="form-group">
+                                <label for="Nitrogeno">Nitrogeno</label>
+                                <input type="text" name="Nitrogen" id="Nitrogeno" placeholder="Nitrogeno" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="Fosforo">Fosforo</label>
+                                <input type="text" name="Phosphorus" id="Fosforo" placeholder="Fosforo" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="Potasio">Potasio</label>
+                                <input type="text" name="Potassium" id="Potasio" placeholder="Potasio" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Temperatura">Temperatura</label>
+                                <input type="text" name="Temperature" id="Temperatura" placeholder="Temperatura" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Humedad">Humedad</label>
+                                <input type="text" name="Humidity" id="Humedad" placeholder="Humedad" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Ph">PH</label>
+                                <input type="text" name="pH_Value" id="Ph" placeholder="PH" required>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="Signup" id="Signup" class="form-submit" value="Enviar"/>
+                            </div>
+                        </form>
+                        
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="../static/images/caña.JPG" alt="sign up image"></figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    </div>
+
+</body>
+</html>
