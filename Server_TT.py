@@ -21,9 +21,8 @@ current_dir = os.path.dirname(__file__)
 
 # Flask app
 app = Flask(__name__, static_folder = 'static', template_folder = 'template')
-allowed_origin = ["https://api-agrosabio.onrender.com"]
 # O para permitir de todos los orígenes (no recomendado para producción)
-CORS(app, resources={r"/prediction*": {"origins": allowed_origin}})
+CORS(app, resources={r"/prediction*": {"origins": "https://api-agrosabio.onrender.com"}})
 # Logging
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
@@ -42,13 +41,10 @@ def ValuePredictor(data = pd.DataFrame):
 
 # Función para enviar datos a la API de Express
 def send_data_to_express(data):
-    url = 'https://api-agrosabio.onrender.com'  # URL de tu intermediario en PythonAnywhere
-    try:
-        response = requests.post(url, json=data)
-        response.raise_for_status()  # Lanza una excepción para códigos de estado HTTP 4xx/5xx
-        return response.json()
-    except requests.exceptions.RequestException as e:
-        return {"status": "error", "message": str(e)}
+    url = "https://api-agrosabio.onrender.com/api/store"  
+ 
+    response = requests.post(url, json=data)  
+    return response.json()  
 
 @app.errorhandler(500)
 def handle_500(error):
@@ -78,7 +74,7 @@ def predict():
 
         # Additional code remains the same
 
-        data = {
+        data = {    
             'Nitrogen': nitrogen,
             'Potassium': potassium,
             'Humidity': humidity,
@@ -98,7 +94,7 @@ def predict():
 
         # Create a prediction
         result = ValuePredictor(data=df)
-
+        
          # Enviar datos a la API de Express
         express_response = send_data_to_express(data)
 
@@ -124,6 +120,8 @@ def predict():
         }
 
     return jsonify(response)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
