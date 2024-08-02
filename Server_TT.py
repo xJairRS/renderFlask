@@ -22,7 +22,8 @@ current_dir = os.path.dirname(__file__)
 # Flask app
 app = Flask(__name__, static_folder = 'static', template_folder = 'template')
 # O para permitir de todos los orígenes (no recomendado para producción)
-CORS(app, resources={r"/prediction*": {"origins": "https://api-agrosabio.onrender.com"}})
+CORS(app, resources={r"/*": {"origins": ["https://agrosabio.netlify.app", "https://api-agrosabio.onrender.com"]}})
+
 # Logging
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
